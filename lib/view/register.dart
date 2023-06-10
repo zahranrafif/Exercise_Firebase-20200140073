@@ -28,31 +28,46 @@ class Register extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please type an name';
+                  }
+                },
                 decoration: InputDecoration(hintText: "Name"),
                 onChanged: (value) {
                   name = value;
                 },
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please type an email';
+                  }
+                },
                 decoration: InputDecoration(hintText: "Email"),
                 onChanged: (value) {
                   email = value;
                 },
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               TextFormField(
+                validator: (value) {
+                  if (value == null || value.length < 6) {
+                    return 'Your password needs to be at least 6 characters';
+                  }
+                },
                 decoration: InputDecoration(hintText: "Password"),
                 onChanged: (value) {
                   password = value;
                 },
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               ElevatedButton(
                 child: Text('Register'),
@@ -112,9 +127,6 @@ class Register extends StatelessWidget {
                     }
                   }
                 },
-              ),
-              SizedBox(
-                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
