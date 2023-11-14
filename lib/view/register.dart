@@ -6,6 +6,8 @@ import 'package:flutter_firebase/model/user_model.dart';
 import 'package:flutter_firebase/view/contact.dart';
 import 'package:flutter_firebase/view/login.dart';
 
+///code untuk membuat tampilan form register dan validasi data
+///akan menghasilkan  antarmuka halaman pendaftaran, untuk memasukkan informasi pengguna yang akan digunakan untuk membuat akun.
 class Register extends StatelessWidget {
   final formkey = GlobalKey<FormState>();
   final autCtr = AuthController();

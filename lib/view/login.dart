@@ -6,11 +6,11 @@ import 'package:flutter_firebase/model/user_model.dart';
 import 'package:flutter_firebase/view/contact.dart';
 import 'package:flutter_firebase/view/register.dart';
 
+///code untuk membuat tampilan form login dan validasi data
+///akan menghasilkan antarmuka halaman login, untuk memasukkan informasi pengguna yang akan digunakan untuk masuk kedalam aplikasi.
 class Login extends StatelessWidget {
   final formkey = GlobalKey<FormState>();
-
   final autCtr = AuthController();
-
   String? email;
   String? password;
 
@@ -63,7 +63,7 @@ class Login extends StatelessWidget {
                         email!, password!);
 
                     if (signUser != null) {
-                      // Registration successful
+                      ///Registration successful
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -79,7 +79,8 @@ class Login extends StatelessWidget {
                                       MaterialPageRoute(
                                           builder: (context) => Contact()));
                                   print(signUser.name);
-                                  // Navigate to the next screen or perform any desired action
+
+                                  ///Navigate to the next screen or perform any desired action
                                 },
                                 child: const Text('OK'),
                               ),
@@ -88,7 +89,7 @@ class Login extends StatelessWidget {
                         },
                       );
                     } else {
-                      // Registration failed
+                      ///Registration failed
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {

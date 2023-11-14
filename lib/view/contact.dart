@@ -9,6 +9,8 @@ import 'package:flutter_firebase/view/update_contact.dart';
 
 import '../controller/auth_controller.dart';
 
+///code untuk membuat tampilan daftar list kontak dalam bentuk card.
+///akan menghasilkan tampilan data daftar kontak yang berupa card.
 class Contact extends StatefulWidget {
   const Contact({super.key});
 
@@ -62,25 +64,31 @@ class _ContactState extends State<Contact> {
                 }
                 final List<DocumentSnapshot> data = snapshot.data!;
 
+                ///code untuk membuat operasi update data kontak.
+                ///jika ditekan dan tahan akan mengarahkan ke halaman update data.
                 return ListView.builder(
                   itemCount: data.length,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: InkWell(
-                        onLongPress: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => UpdateContact(
-                                        name: data[index]['name'].toString(),
-                                        phone: data[index]['phone'].toString(),
-                                        email: data[index]['email'].toString(),
-                                        address:
-                                            data[index]['address'].toString(),
-                                        id: data[index]['id'].toString(),
-                                      )));
+                        onLongPress: () async {
+                          final updatedData = await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => UpdateContact(
+                                name: data[index]['name'].toString(),
+                                phone: data[index]['phone'].toString(),
+                                email: data[index]['email'].toString(),
+                                address: data[index]['address'].toString(),
+                                id: data[index]['id'].toString(),
+                              ),
+                            ),
+                          );
                         },
+
+                        ///code untuk membuat tampilan data kontak didalam card atau kartu
+                        ///menghasilkan tampilan data kontak yang terbungkus card sehingga terlihat rapih.
                         child: Card(
                           elevation: 10,
                           child: ListTile(

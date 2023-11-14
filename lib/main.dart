@@ -4,21 +4,25 @@ import 'package:flutter_firebase/view/contact.dart';
 import 'package:flutter_firebase/view/login.dart';
 import 'package:flutter_firebase/view/register.dart';
 
+///code untuk menginisialisasi Firebase dan untuk dapat menjalankan aplikasi.
+///akan menghasilkan penggunaan Firebase seperti firestore dan authentication dalam aplikasi.
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(); //intial firebase
   runApp(const MyApp());
 }
 
+///code untuk mendefinisikan kelas MyApp
+///akan menghasilkan tampilan konfigurasi awal aplikasi seperti halaman utama dan apakah akan menampilkan banner debug
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      title: 'Contact List',
+      home: Contact(),
     );
   }
 }
